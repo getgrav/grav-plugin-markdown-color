@@ -1,11 +1,11 @@
-name: Markdown Color
+name: Themed Markdown Color
 version: 1.0.1
-description: "Adds ability to output colored text in Markdown"
+description: "Adds ability to output colored text in Markdown by using theme names that one defines"
 icon: asterisk
 author:
-  name: Team Grav
-  email: devs@getgrav.org
-  url: http://getgrav.org
+  name: Alejandro Gaio, based on work from the Team Grav
+  email: alegaio76+gravtheme@gmail.com
+  url: https://github.com/alegaio7/grav-plugin-markdown-color
 license: MIT
 
 form:
@@ -21,3 +21,97 @@ form:
         0: Disabled
       validate:
         type: bool
+    theme-blue:
+      type: colorpicker
+      default: '#0000ff'
+      label: Blue
+    theme-green:
+      type: colorpicker
+      default: '#00ff00'
+      label: Green
+    theme-red:
+      type: colorpicker
+      default: '#ff0000'
+      label: Red
+    theme-yellow:
+      type: colorpicker
+      default: '#ffff00'
+      label: Yellow
+    theme-purple:
+      type: colorpicker
+      default: '#ff00ff'
+      label: Purple
+    theme-cyan:
+      type: colorpicker
+      default: '#00ffff'
+      label: Cyan
+    theme-white:
+      type: colorpicker
+      default: '#ffffff'
+      label: White
+    theme-black:
+      type: colorpicker
+      default: '#000000'
+      label: Black
+    theme-gray:
+      type: colorpicker
+      default: '#808080'
+      label: Gray
+    theme-orange:
+      type: colorpicker
+      default: '#ffa500'
+      label: Orange
+    theme-brown:
+      type: colorpicker
+      default: '#a52a2a'
+      label: Brown
+    theme-pink:
+      type: colorpicker
+      default: '#ffc0cb'
+      label: Pink
+    theme-maroon:
+      type: colorpicker
+      default: '#800000'
+      label: Maroon
+    theme-olive:
+      type: colorpicker
+      default: '#808000'
+      label: Olive
+    theme-lime:
+      type: colorpicker
+      default: '#00ff00'
+      label: Lime
+    theme-teal:
+      type: colorpicker
+      default: '#008080'
+      label: Teal
+    theme-navy:
+      type: colorpicker
+      default: '#000080'
+      label: Navy
+    theme-silver:
+      type: colorpicker
+      default: '#c0c0c0'
+      label: Silver
+    theme-gold:
+      type: colorpicker
+      default: '#ffd700'
+      label: Gold
+    theme-violet:
+      type: colorpicker
+      default: '#ee82ee'
+      label: Violet
+    theme-magenta:
+      type: colorpicker
+      default: '#ff00ff'
+      label: Magenta
+    theme-indigo:
+      type: colorpicker
+      default: '#4b0082'
+      label: Indigo
+    theme-turquoise:
+      type: colorpicker
+      default: '#40e0d0'
+      label: Turquoise
+      
+

@@ -1,11 +1,5 @@
-# v1.0.1
-## 01/06/2016
-
-1. [](#bugfix)
-    * Fixed README
-
 # v1.0.0
-## 12/22/2015
+## 18/09/2023
 
 1. [](#new)
-    * ChangeLog started...
+    * Forked from https://github.com/getgrav/grav-plugin-markdown-color/fork
