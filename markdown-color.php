@@ -25,10 +25,25 @@ class ThemedMarkdownColorPlugin extends Plugin
 
         // Add function to handle this
         $markdown->inlineColoredText = function($excerpt) {
-            // handling of foreground color
+            // default plugin color handling
+            if (preg_match('/^{c:([#\w]\w+)}([^{]+){\/c}/', $excerpt['text'], $matches))
+            {
+                return array(
+                    'extent' => strlen($matches[0]),
+                    'element' => array(
+                        'name' => 'span',
+                        'text' => $matches[2],
+                        'attributes' => array(
+                            'style' => 'color: '.$matches[1],
+                        ),
+                    ),
+                );
+            }
+
+            // handling of foreground (theme) color
             if (preg_match('/^{theme:(\w+)}([^{]+){\/theme}/', $excerpt['text'], $matches))
             {
-                $c = $this->config->get('plugins.themed-markdown-color.theme-' . $matches[1]);
+                $c = $this->config->get('plugins.markdown-color.theme-' . $matches[1]);
                 if (!is_null($c))
                     return array(
                         'extent' => strlen($matches[0]),
@@ -42,7 +57,7 @@ class ThemedMarkdownColorPlugin extends Plugin
                     );
             }
 
-            // handling of background colors with either white or black text
+            // handling of background (theme) colors with either white or black text
             if (preg_match('/^{bgtheme:(\w+)-([bw]{1})}([^{]+){\/bgtheme}/', $excerpt['text'], $matches))
             {
                 $c = $this->config->get('plugins.markdown-color.theme-' . $matches[1]);

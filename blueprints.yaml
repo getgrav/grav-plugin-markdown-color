@@ -1,11 +1,11 @@
-name: Themed Markdown Color
+name: Markdown Color with Theme support
 version: 1.0.1
-description: "Adds ability to output colored text in Markdown by using theme names that one defines"
+description: "Adds ability to output colored text in Markdown by using standard '#RRGGBB' notation or names that one defines in a theme"
 icon: asterisk
 author:
-  name: Alejandro Gaio, based on work from the Team Grav
-  email: alegaio76+gravtheme@gmail.com
-  url: https://github.com/alegaio7/grav-plugin-markdown-color
+  name: Team Grav / Alejandro Gaio
+  email: devs@getgrav.org
+  url: http://getgrav.org
 license: MIT
 
 form:
