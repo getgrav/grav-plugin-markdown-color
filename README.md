@@ -107,7 +107,7 @@ Will produce the following HTML:
 </p>
 ```
 
-## Use of black/white text with theme colors for backgrounds
+## Use of black/white text with theme color for backgrounds
 ```
 {theme:primary-w}This is white text over a primary background color.{/theme}
 ```
