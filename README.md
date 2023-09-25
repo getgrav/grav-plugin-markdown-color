@@ -2,7 +2,9 @@
 
 An extended version based on the original **markdown-color plugin** for [Grav](http://github.com/getgrav/grav), now supporting text with foreground/background colors from a _theme_. Also, custom names for colors can be used, like 'primary', 'warning', or whatever you define.
 
-Theme color are defined by using the admin panel or by editing the `markdown-color.yaml` file.
+Theme colors must first be defined in **both** files: `blueprints.yaml` and `markdown-color.yaml`.
+
+Afterwards, if you want to edit a theme color, just use the admin panel or edit the `markdown-color.yaml` file manually.
 
 # Installation
 
@@ -24,7 +26,7 @@ theme-blue: '#0000ff'
 theme-green: '#00ff00'
 ```
 
-For a theme color to be available in the Admin panel, first define it in the  `user/plugins/markdown-color/blueprints.yaml` file:
+For a theme color to be available in the admin panel, first define it in the  `user/plugins/markdown-color/blueprints.yaml` file:
 ```
 form:
   validation: strict
@@ -53,7 +55,7 @@ theme-green: '#00ff00'
 
 # Using other color identifiers
 
-Instead of using web color names (like blue, green, etc.), you can use whatever you want to describe them as long as they are defined in the blueprints and markdown-color yaml files.
+Instead of using web color names (like blue, green, etc.), you can use whatever you want to describe them as long as they are defined in the blueprints.yaml and markdown-color.yaml files.
 
 For instance, you could define _theme-primary_, _theme-warning_, _theme-success_ and so on, as it's so popular in web frameworks:
 
@@ -62,10 +64,10 @@ For instance, you could define _theme-primary_, _theme-warning_, _theme-success_
 * ...
 
 # Using theme colors for backgrounds
-You may use the markdown-color plugin to set a background color with a combination of white or black text by using {theme:_color_-**w**} for white text or {theme:_color_-**b**} for black text over a themed background color.
+You may use the markdown-color plugin to set a background color with either white or black text by using {theme:_color_-**w**} for white text or {theme:_color_-**b**} for black text over a themed background color.
 
 # Examples
-## Classic color management
+## Original markdown-color plugin use
 Use {c:#rrggbb} or {c:web-color-name}.
 
 This is {c:red}red text{/c} and this is {c:#000099}blue text{/c}.
@@ -91,6 +93,7 @@ Will produce the following HTML:
     This is <span style="color:#f10c53">red text</span> and this is <span style="color:#80ecc7">lime text</span>.
 </p>
 ```
+> Important! When using 'c:' (original plugin way) you may refer to a color by its RGB value (#rrggbb) or by its web well-known name (i.e.: red). But when using 'theme:' the color name MUST be defined in both yaml files as stated at the top of this document.
 
 ## Use of custom color names for text
 Assuming you defined 'theme-primary' as '#628cf4' and 'theme-warning' as '#f59262':
