@@ -4,7 +4,7 @@ namespace Grav\Plugin;
 use \Grav\Common\Plugin;
 use RocketTheme\Toolbox\Event\Event;
 
-class MarkdownColorPlugin extends Plugin
+class ThemedMarkdownColorPlugin extends Plugin
 {
     /**
      * @return array
@@ -25,6 +25,7 @@ class MarkdownColorPlugin extends Plugin
 
         // Add function to handle this
         $markdown->inlineColoredText = function($excerpt) {
+            // default plugin color handling
             if (preg_match('/^{c:([#\w]\w+)}([^{]+){\/c}/', $excerpt['text'], $matches))
             {
                 return array(
@@ -37,6 +38,42 @@ class MarkdownColorPlugin extends Plugin
                         ),
                     ),
                 );
+            }
+
+            // handling of foreground (theme) color
+            if (preg_match('/^{theme:(\w+)}([^{]+){\/theme}/', $excerpt['text'], $matches))
+            {
+                $c = $this->config->get('plugins.markdown-color.theme-' . $matches[1]);
+                if (!is_null($c))
+                    return array(
+                        'extent' => strlen($matches[0]),
+                        'element' => array(
+                            'name' => 'span',
+                            'text' => $matches[2],
+                            'attributes' => array(
+                                'style' => 'color: '.$c
+                            ),
+                        ),
+                    );
+            }
+
+            // handling of background (theme) colors with either white or black text
+            if (preg_match('/^{bgtheme:(\w+)-([bw]{1})}([^{]+){\/bgtheme}/', $excerpt['text'], $matches))
+            {
+                $c = $this->config->get('plugins.markdown-color.theme-' . $matches[1]);
+                if (!is_null($c)) {
+                    $f = $matches[2] == 'b' ? '#000' : '#fff';
+                    return array(
+                        'extent' => strlen($matches[0]),
+                        'element' => array(
+                            'name' => 'span',
+                            'text' => $matches[3],
+                            'attributes' => array(
+                                'style' => 'background-color: '. $c . '; color: ' . $f
+                            ),
+                        ),
+                    );
+                }
             }
         };
     }
