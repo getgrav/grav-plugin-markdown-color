@@ -25,7 +25,7 @@ class MarkdownColorPlugin extends Plugin
 
         // Add function to handle this
         $markdown->inlineColoredText = function($excerpt) {
-            if (preg_match('/^{c:([#\w]\w+)}([^{]+){\/c}/', $excerpt['text'], $matches))
+            if (preg_match('/^{c:([#\w]\w+)}([^{]+){\/c}/', (string) $excerpt['text'], $matches))
             {
                 return array(
                     'extent' => strlen($matches[0]),

@@ -1,5 +1,5 @@
 name: Markdown Color
-version: 1.0.1
+version: 1.0.2
 description: "Adds ability to output colored text in Markdown"
 icon: asterisk
 author:
@@ -7,6 +7,9 @@ author:
   email: devs@getgrav.org
   url: http://getgrav.org
 license: MIT
+
+compatibility:
+  grav: ['1.7', '2.0']
 
 form:
   validation: strict
